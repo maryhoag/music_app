@@ -19,6 +19,18 @@
 			</div>
 		</div>
 	</div>
+	<div class="row blue lighten-5">
+		<form class="col s12">
+	      <div class="row">
+	        <div class="input-field col s3 offset-s6">
+	          <input placeholder="breed name" id="breed_name" type="text">
+	        </div>
+  		</form>
+  		<button class="btn waves-effect waves-light animal_search" type="submit" name="action">Submit
+  		</button>
+  		</div>
+
+	</div>
 
 
   <div class="row teal lighten-5">
@@ -68,6 +80,31 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+  	<script type="text/javascript">
+  	
+  		$(".animal_serch").click(function() {
+  			console.log("i work!");
+  			//store breed name in a var
+  			var breed = $("#breed_name").val().trim();
+
+  			//send API request
+  			var petfinderAPI_key = 'http://api.petfinder.com/my.method?format=json&breed="' + breed + '"key=641471741fe5804f57bb7efeac000302&callback=?';
+  		
+  		
+	  		$.getJSON(petfinderAPI_key).done(function(petApiData) { 
+	  		console.log('Data retrieved!').error(function(err) { console.log('Error retrieving data! ' + err); 
+			});
+
+  			console.log(petApiData);
+
+  		//recive info as an object
+  		});
+
+	});
+
+  		//display photo and location on page
+  	</script>
 
 
 </body>

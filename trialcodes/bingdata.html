@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bing Search</title>
+
+	<script src="jquery-2.2.3.min.js" ></script>
+
+</head>
+<body>
+
+<!-- Simple HTML -->
+
+	<div id="search">
+		
+		<form>Search Here
+			<input id="searchTerm"> <br>
+			<input type="submit" id="getResults">
+		</form>
+
+	</div>
+
+	<div id="viewResults"></div>
+
+
+	<script type="text/javascript">
+
+	$(document).ready (function() {
+
+		$("#getResults").on("click", function() {
+
+			var getBingTerm = $("#searchTerm").val().trim();
+					console.log(getBingTerm);
+
+			var bingUrl = "https://api.datamarket.azure.com/Bing/Search/v1/Composite?Sources=%27news%2Bimage%2Bvideo%27&Query=%27" + getBingTerm + "%27&$top=10&$format=json"
+
+			$.ajax({ url: bingUrl, 	method: 'GET',
+					headers: {
+						Authorization: 'Basic '+ btoa('4LleeC+EOxRAuqHyHr2vjDad+DndwMdwKpPN0jvcBQk:4LleeC+EOxRAuqHyHr2vjDad+DndwMdwKpPN0jvcBQk')
+					}
+				}).done(function(response) {
+
+						console.log(response);     
+				});
+		
+			return false;
+
+		});
+
+
+			
+
+	});
+		
+
+
+
+	</script>
+
+
+<!-- End Script -->
+
+</body>
+</html>

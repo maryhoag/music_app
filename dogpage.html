@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Project Name</title>
+	<!-- link to materiallize -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+	<!-- link to materialize icons -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+<div class="row">
+	<div class="col s3 welcome">
+		Welcome Becky!
+	</div>
+	<div class="col s2 offset-s6">
+		<a href="#">My Account</a>
+	</div>
+</div>
+
+<div class="row">
+<!--I'm leaving this row intact now but we'll have to see how it looks on a phone -->
+	<div class="col s5">
+		Project Name
+	</div>
+	<div class="col s7">
+		<div class="input-field col s6">
+          <input id="breed_name" type="text" class="validate">
+          <label for="search_term">search 
+
+          term</label>
+        </div>
+        <a class="waves-effect waves-teal btn-flat search">submit</a>
+	</div>
+
+</div>
+
+<div class="container">
+
+	<div class="row">
+		<!-- this offsets the row and vertically aligns the text -->
+		<div class="card-panel valign-wrapper">
+		<h3 class="center-align" id="breed">German Shepherd</h3>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col s6 offset-3 m4 photo">
+			photo goes here
+		</div>
+		<div class="col s12 m8 about">
+			wiki entry goes here
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col s6 offset-3 m4">
+			popular news
+		</div>
+		<div class="col s12 m8 article">
+			news article
+		</div>
+	</div>
+
+	<div class="row giphy">
+		adorable gifs here
+	</div>
+
+	<div class="row videos">
+	</div>
+
+	<div class="row petfinder_info">
+		animal adoption info here
+	</div>
+
+<footer>by susan and erik and patrick and mary</footer>
+
+
+
+ <!-- link to jquery-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<!-- link to materialize js-->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+<script type="text/javascript">
+
+
+	//search function
+	$(".search").on("click", function() {
+		console.log("i work!");
+		//assinging the search term to a var
+		var queryTerm = $("#breed_name").val().trim();
+		//verifying the var
+		console.log(queryTerm);
+		//create the query var
+		var petfinderAPI_key = 'http://api.petfinder.com/pet.getRandom&count="5"&format=json&key=641471741fe5804f57bb7efeac000302&breed="' + breed + '"&count='5'&callback=?';
+  		
+  		
+	  		$.ajax({url: petfinderAPI_key, method:"GET"}).done(function(petApiData) { 
+	  		console.log('Data retrieved!').error(function(err) { console.log('Error retrieving data! ' + err); 
+			});
+
+  			console.log(petApiData);
+		//send ajax request
+
+		//console.log ogject
+				});
+	  	});
+
+</script>
+
+</body>
+
+<!-- link to jquery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+<!-- link to materialize js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+
+</html>

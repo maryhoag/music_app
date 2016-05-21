@@ -19,7 +19,12 @@
 
 	</div>
 
-	<div id="viewResults"></div>
+	<div id="viewResults">
+	
+		<div id="showArticles"></div>
+		<div id="showVideos"></div>
+
+	</div>
 
 
 	<script type="text/javascript">
@@ -39,7 +44,32 @@
 					}
 				}).done(function(response) {
 
-						console.log(response);     
+						console.log(response);
+					//	console.log(response.d.results[0].Video[1]);
+
+
+
+					// Pull News
+
+						var bingSearchArticles = response.d.results[0].News;
+
+							for ( var ba = 0; ba < bingSearchArticles.length; ba++ ) {
+								console.log(bingSearchArticles[ba]);
+
+								$("#showArticles").append("<div class='articlesHere' id='articleTitle'>" + bingSearchArticles[ba].Title + "<br><br>" + "<p>" + bingSearchArticles[ba].Description + "</p>" + "<br>");
+
+							}
+
+
+
+						
+
+
+
+
+
+					// Pull Videos
+
 				});
 		
 			return false;

@@ -1,0 +1,12 @@
+body {
+	font-family: 'Work Sans', sans-serif;
+	background-image: url(transparent_prints.png);
+}
+
+body: after {
+	opacity: 0.2;
+}
+
+.title {
+	font-family: 'Snowburst One', cursive;
+}

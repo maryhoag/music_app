@@ -9,4 +9,13 @@ body: after {
 
 .title {
 	font-family: 'Snowburst One', cursive;
+	color: #2196f3;
+}
+
+h4 {
+	text-align: center;
+}
+
+footer {
+	font-family: 'Fascinate', cursive;
 }

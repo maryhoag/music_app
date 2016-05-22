@@ -1,23 +1,4 @@
-var myLast5Searches = new Firebase("https://console.firebase.google.com/project/project-3404913783788705038/database/data/");
 
-var buttonData = {
-	url: queryURL,
-	repeatSearch: function(queryURL), {
-		//repeat of search code goes here
-	},
-	//name to go into button on page
-	name: searchedName,
-	buttons: function() {
-
-		for(i=0; i < array.length; i++) {
-			//create buttons  for each array element
-			//adds classes for the button and text from the array[i] Object of the array
-			var buttonCreate = $("<a>").addClass("waves-effect waves-light btn").text(array[i].name);
-			$("someDivClass").append(buttonCreate);
-		}
-	}
-
-}
 
 
 var imageCardCreator = function() {

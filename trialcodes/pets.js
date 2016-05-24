@@ -4,22 +4,33 @@
 var imageCardCreator = function() {
 	//div that contains the whole card, we may want to addClass for row/col for spacing purposes
 	var pet = $("<div>");
+	$(pet).addClass("card small active" );
+	$(pet).attr("style", "overflow: hidden;")
 	//image card
 	var card= $("<div>").addClass("card-image waves-effect waves-block waves-light");
 	//insert image source into line 26 *************************
-	var imageTag = $("<img>").addClass("activator").attr("assets/small-dot-stock.jpg");
+	var imageTag = $("<img>").addClass("activator");
+	$(imageTag).attr("src", petPic);
+	$(imageTag).attr("height", "200");
+	$(imageTag).attr("width", "200");
 	$(card).append(imageTag);
 	$(pet).append(card);
 
 	//title and link portion of card
 	var content = $("<div>").addClass("card-content");
 	//add var for pet name here ************************************************************
-	var petName = $("<span>").addClass("card-title activator grey-text text-darken-4").text("beau");
+	var petName = $("<span>").addClass("card-title activator grey-text text-darken-4 title");
+	$(petName).html(animalAlias);
 	//more info icon -- which will only work if you have the materialize icon css link in your page
-	var moreInfo  = $("<i>").addClass("material-icons right").text("more_vert");
+	var moreInfo  = $("<i>").addClass("material-icons right");
+	$(moreInfo).html("more_vert");
 	var p = $("<p>");
 	//add var for pet link here ************
-	var petLink = $("<a>").attr("href='awesome.com");
+	var petLink = $("<a>");
+
+	$(petLink).attr("href", petWebPage);
+	//need to add var/content to create this text###########
+	$(petLink).text("awesome.com");
 
 	//adds icon to span containing name
 	$(petName).append(moreInfo);
@@ -31,12 +42,16 @@ var imageCardCreator = function() {
 	$(pet).append(content);
 
 	//'reveal' portion of the card
-	var reveal = $("<div>").addClass("content-reveal");
-	//add pet name here *********************************
-	var revealTitle = $("<span>").addClass("card-title grey-text text-darken-4").text("beau");
-	var closeInfo = $("<i>").addClass("material-icons right").text("close");
+	var reveal = $("<div>").addClass("card-reveal");
+	var revealTitle = $("<span>").addClass("card-title grey-text text-darken-4 title");
+	$(revealTitle).html(animalAlias);
+	var closeInfo = $("<i>").addClass("material-icons right title");
+	//close is inside the i tag
+	$(closeInfo).html("close");
 	//add pet info paragraph here *****************
-	var petInfo = $("<p>").text("awesome dog of awesomeness");
+	var petInfo = $("<p>");
+	$(petInfo).html(petBio);
+	
 
 	//adds icon to pet name span
 	$(closeInfo).append(petInfo);
@@ -48,13 +63,10 @@ var imageCardCreator = function() {
 	console.log("I work");
 
 	//add animal div here
-	$(".ANIMAL_DIV").html(pet);
+	$(".ANIMAL_DIV").append(pet);
 
 
 };
-
-
-imageCardCreator();
 
 
 var animals = [
@@ -72,3 +84,28 @@ var animals = [
 	}
 
 ];
+
+for(var i = 0; i < animals.length; i++) {
+	var animalAlias = animals[i].petName;
+	var petBio = animals[i].petInfo;
+	var petWebPage = animals[i].petLink;
+	var petPic = animals[i].image;
+
+	imageCardCreator(animalAlias, petBio, petWebPage, petPic);
+	console.log(i);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

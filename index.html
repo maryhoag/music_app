@@ -19,10 +19,18 @@
 
 </head>
 <body>
+
+<div class="col s5">
+    <h4 class="title">Rescue Wiki</h4>
+</div>
+
+
 <div class="container">
 
-	<!-- ===============================-->
 
+
+	<!-- ===============================-->
+<div id="login">
 	<div class="row">
 	<!-- the login screen for registerd users-->
 		<h3 class="center-align title"> Login </h3>
@@ -47,12 +55,17 @@
       			<button class="btn waves-effect waves-light regUser" type="submit" name="action">Submit
     				<i class="material-icons right">send</i>
   				</button>
+          <button class="btn waves-effect waves-light register blue" type="submit" name="action">Register for a new account
+            <i class="material-icons right">send</i>
+          </button>
       		</div>
 		</form>
 	</div>
+</div>
 
 	<!-- ================================ -->
 	<!-- the signup screen for new users -->
+<div id="registration" style="display:none;">
 	<div class="row">
 		<h3 class="center-align title">Register</h3>
 	</div>
@@ -95,6 +108,8 @@
     </form>
   </div>
 
+</div>
+
 	
 
 
@@ -116,6 +131,17 @@
 
 <!-- link to ask user to login -->
 <script src="userauth.js"></script>
+
+<script type="text/javascript">
+  
+  $(".register").on("click", function() {
+    $("#login").attr("style", "display:none;");
+    $("#registration").removeAttr("style");
+
+    return false;
+
+  })
+</script>
 
 
 

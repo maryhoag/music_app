@@ -42,14 +42,18 @@
 </div>
 </div>
 
-<div class="row" id="searchbar">
+<div class="row">
+	<div id="searchbar">
 
-	<div class="input-filed col s6 m2 offset-m1">
-		<input id="zip" type="text" class="validate">
-		<label for="search-term">Zip code</label>
+		<div class="input-filed col s4">
+			<input id="zip" type="text" class="validate">
+			<label for="search-term">Zip code</label>
+		</div>
 	</div>
+</div>
 
 <!-- Dropdown Trigger -->
+<div class="row">
   <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Pick an animal type</a>
 
   <!-- Dropdown Structure -->
@@ -58,14 +62,15 @@
     <li class="typeCat">Cat</li>
     <li class="typeBird">Bird</li>
   </ul>
+</div>
 
-	<div class="input-field col s6 m2 offset-m1">
+<div class="row">
+	<div class="input-field col s4">
 		<label for="search_term">breed</label>
     	<input id="breedName" list="autofill" type="text" class="validate">
+
+    	<a class="waves-effect waves-teal btn-flat search" id="submitName">submit</a>
  	</div>
-
-    <a class="waves-effect waves-teal btn-flat search" id="submitName">submit</a>
-
 </div>
 
 

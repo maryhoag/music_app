@@ -24,3 +24,30 @@ h4 {
 footer {
 	font-family: "deco", cursive;
 }
+
+#map{
+	height: 300px;
+	width: 500px;
+	float: left;
+}
+
+#wikimap{
+}
+
+#wikiresult{
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+	height: 300px;
+	width: 500px;
+	float: left;
+	margin-left: 2%;
+}
+
+#pets{
+	margin-top: 1%;
+}
+
+#searchbar{
+	height: 150px;
+}

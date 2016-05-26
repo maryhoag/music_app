@@ -38,15 +38,22 @@ footer {
 }
 
 #typeTitle{
-	width: 100%;
+	width: 90%;
+	margin-top: 3%;
+	margin-bottom: 3%;
 }
 
 #breedName{
-
+	width: 90%;
 }
 
 #zip{
+	width: 90%;
+}
 
+#submitName{
+	margin-top: 5%;
+	margin-bottom: 2%;
 }
 
 .banner{
@@ -76,13 +83,28 @@ footer {
 }
 
 #pets{
-	margin-top: 1%;
+	margin-top: 3%;
 }
 
+#last5{
+	margin-left: 3%;
+	float: left;
+	width: 100px;
+	height: 300px;
+	border-style: solid;
+	border-color: black;
+	border-width: 1px;
+}
 
 
 #searchbar{
+	text-align: center;
+	background-color: white;
 	float: left;
 	margin-left: 10%;
-	height: 150px;
+	width: 250px;
+	height: 300px;
 }
+
+
+

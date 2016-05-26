@@ -1,4 +1,4 @@
-
+var database = new Firebase("https://wikirescue.firebaseio.com/");
 var laty = 40.9097802;
 var long = -100.1617613;
 var zoom = 3;
@@ -22,6 +22,9 @@ function initMap() {
 
 $(".typeDog").on("click", function(){
 var name = "dog"
+    database.push({
+        name: name
+    })
 //$(".nameOptions").animate({left: "-=250px"});
 $("#typeTitle").html("<b>Dog</b>");
 $("#autofill").empty()
@@ -40,6 +43,9 @@ $.getJSON('http://api.petfinder.com/breed.list?format=json&key=542589b85677d309b
 })
 $(".typeCat").on("click", function(){
 var name = "cat"
+    database.push({
+        name: name
+    })
 //$(".nameOptions").animate({left: "-=250px"});
 $("#typeTitle").html("<b>Cat</b>");
 $("#autofill").empty()
@@ -58,6 +64,9 @@ $.getJSON('http://api.petfinder.com/breed.list?format=json&key=542589b85677d309b
 })
 $(".typeBird").on("click", function(){
 var name = "bird"
+    database.push({
+        name: name
+    })
 //$(".nameOptions").animate({left: "-=250px"});
 $("#typeTitle").html("<b>Bird</b>");
 $("#autofill").empty()
@@ -75,10 +84,22 @@ $.getJSON('http://api.petfinder.com/breed.list?format=json&key=542589b85677d309b
     });
 })
 
+
+
+
 $("#submitName").on("click", function(){
 
     var zip = $("#zip").val().trim();
     var breedType = $("#breedName").val().trim();
+
+    database.push({
+        zip: zip,
+        breedType: breedType
+    })
+
+//if last1 == xxx then go to .last2
+    $(".last1").empty();
+    $(".last1").html(zip);
 
     $("#wiki").show();
 
@@ -205,28 +226,43 @@ $("#submitName").on("click", function(){
                             "<span class='card-title grey-text text-darken-4 title'>" +
                                 petData.petfinder.pets.pet[i].name.$t + 
                             "<i class='material-icons right'>close</i></span>" +
-                            "<p>Here is some more information about this product that is only revealed once clicked on.</p>" +
+                            "<div id='info'>" + 
+                            "<div class='title'>Name: </div>" + "  " + petData.petfinder.pets.pet[i].name.$t + " " +
+                            "<div class='title'>Gender: </div>" + "  " + petData.petfinder.pets.pet[i].sex.$t + " " +
+                            "<div class='title'>Age: </div>" + "  " + petData.petfinder.pets.pet[i].age.$t + " " +
+                            "<div class='title'>Mix: </div>" + "  " + petData.petfinder.pets.pet[i].mix.$t + " " +
+                            "<div class='title'>Size: </div>" + "  " + petData.petfinder.pets.pet[i].size.$t + " " +
+                            "<div class='title'>Description: </div>" + "  " + petData.petfinder.pets.pet[i].description.$t + " " +
+                            "</div>" +
                         "</div>" + 
                     "</div>" +
                 "</div>" +
                 "</div>"
                     );
 
-
-                var animalInfo = $("<div class='petInfo'>"
-                    + "<div class='title'>Name: </div>" + "  " + petData.petfinder.pets.pet[i].name.$t + " "
-                    + "<div class='title'>Gender: </div>" + "  " + petData.petfinder.pets.pet[i].sex.$t + " "
-                    + "<div class='title'>Age: </div>" + "  " + petData.petfinder.pets.pet[i].age.$t + " "
-                    + "<div class='title'>Mix: </div>" + "  " + petData.petfinder.pets.pet[i].mix.$t + " "
-                    + "<div class='title'>Size: </div>" + "  " + petData.petfinder.pets.pet[i].size.$t + " "
-                    + "<div class='title'>About Me: </div>" + "  " + petData.petfinder.pets.pet[i].description.$t + " "
-                    + "</div>");
-
                 $("#pets").append(petCard); 
             }
              
             }); 
     return false;
+});
+
+
+
+$(".last1").on("click", function(){
+
+database.on("value", function(snapshot) {
+
+        var lastZip = database.snapshot.zip;
+        var lastType = database.snapshot.breedType;
+        var lastName = database.snapshot.name;
+
+        console.log(lastZip);
+        console.log(lastType);
+        console.log(lastName);
+});
+
+
 });
 
 

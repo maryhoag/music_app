@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Project Name</title>
+	<title>WikiRescue</title>
 	<!-- link to materiallize -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
 	<!-- link to materialize icons -->
@@ -22,15 +22,8 @@
 
 <datalist id="autofill"></datalist>
 
-<div class="row">
-	<div class="col s3 welcome">
-		Welcome Becky!
-	</div>
-	<div class="col s2 offset-s6">
-		<a href="#">My Account</a>
-	</div>
-</div>
-<div class="card-panel purple lighten-5 z-depth-3">
+
+<div class="banner purple lighten-5">
 <div class="row">
 	<span class="col s2 m1">
 		<img src="assets/cat_paw.png" height="50px" width="50px">
@@ -42,49 +35,44 @@
 </div>
 </div>
 
-<div class="row">
+
+<div class="container" id="searchmap">
+
 	<div id="searchbar">
 
-		<div class="input-filed col s4">
-			<input id="zip" type="text" class="validate">
-			<label for="search-term">Zip code</label>
-		</div>
-	</div>
-</div>
+		<div class="input-field col s6 m2 offset-m1">
+			<label for="search_term">Zipcode</label>
+    		<input id="zip" list="autofill" type="text">
+ 		</div>
 
-<!-- Dropdown Trigger -->
-<div class="row">
-  <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Pick an animal type</a>
+  		<center><a class='dropdown-button btn' href='#' data-activates='dropdown1' id='typeTitle'>Type of animal</a></center>
 
-  <!-- Dropdown Structure -->
-  <ul id='dropdown1' class='dropdown-content'>
-    <li class="typeDog">Dog</li>
-    <li class="typeCat">Cat</li>
-    <li class="typeBird">Bird</li>
-  </ul>
-</div>
+  		<ul id='dropdown1' class='dropdown-content'>
+    		<li class="typeDog"><b>Dog</b></li>
+    		<li class="typeCat"><b>Cat</b></li>
+    		<li class="typeBird"><b>Bird</b></li>
+  		</ul>
 
-<div class="row">
-	<div class="input-field col s4">
-		<label for="search_term">breed</label>
-    	<input id="breedName" list="autofill" type="text" class="validate">
+		<div class="input-field col s6 m2 offset-m1">
+			<label for="search_term">Breed</label>
+    		<input id="breedName" list="autofill" type="text">
+ 		</div>
 
-    	<a class="waves-effect waves-teal btn-flat search" id="submitName">submit</a>
- 	</div>
-</div>
-
-
-<div class="container" id="wikimap">
-
-	<!-- <div class="row">
-		<div class="card-panel valign-wrapper z-depth-3">
-		<h3 class="center-align title blue-text" id="breed">German Shepherd</h3>
-		</div>
-	</div> -->
-
-	<div class="col m6" id="map">
+    	<center><a class="waves-effect waves-teal btn-flat search" id="submitName">Submit</a></center>
 	</div>
 
+	<div class="col m2" id="last5">
+	<button class="last1">Last 1</button>
+	<button class="last2">Last 2</button>
+	<button class="last3">Last 3</button>
+	</div>
+
+	<div class="col m5" id="map">
+	</div>
+
+</div>
+
+<div class="container" id="wiki">
 
 	<div class="col m6" id="wikiresult">
 	</div>
@@ -93,32 +81,11 @@
 
 <div class="container" id="pets">
 
-<div class="row petfinder_info">
-		<!-- use a ".card-image" or ".card-reveal"/span .card-title card for these photo/text/links -->
-		<!-- animal adoption info here -->
-	<div class="col sm12 m3">
-			<div class="card small">
-    			<div class="card-image waves-effect waves-block waves-light">
-      				<img class="activator" src="assets/small-dog-stock.jpg" alt="shaggy dog on sofa" height="200" width="200">
-    			</div>
-
-    			<div class="card-content">
-      				<span class="card-title activator grey-text text-darken-4 title">Card Title<i class="material-icons right">more_vert</i></span>
-    			</div>
-
-    			<div class="card-reveal">
-      				<span class="card-title grey-text text-darken-4 title">Card Title<i class="material-icons right">close</i></span>
-      				<p>Here is some more information about this product that is only revealed once clicked on.</p>
-      				<p><a href="#">This is a link</a></p>
-    			</div>
-    		</div>
-  		</div>
-	</div>
 </div>
 
 
 
-<footer> &#169 susan and erik and patrick and mary</footer>
+
 
 
 

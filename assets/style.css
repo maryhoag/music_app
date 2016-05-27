@@ -1,13 +1,13 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-image: url(pawtex1.jpg);
+	background-image: url(pawtx2.gif);
 }
 
 
 .title {
 	font-family: 'raconteur', cursive;
-	color: #0d47a1;
+	color: teal;
 }
 
 .banner {

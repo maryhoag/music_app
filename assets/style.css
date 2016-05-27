@@ -56,6 +56,10 @@ footer {
 	margin-bottom: 2%;
 }
 
+.menuB{
+	height: 100%;
+}
+
 .banner{
 	background-color: white;
 }
@@ -99,7 +103,6 @@ footer {
 
 #searchbar{
 	text-align: center;
-	background-color: white;
 	float: left;
 	margin-left: 10%;
 	width: 250px;

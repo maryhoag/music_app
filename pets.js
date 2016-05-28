@@ -266,14 +266,14 @@ function mostRecentSearch(){
 
         var petCard = $(
             "<div class='petfinder_info'>" +
-                "<div class='col sm12 m3'>" +
+                //"<div class='col sm12 m6 l4'>" +
                     "<div class='card small'>" + 
                         "<div class='card-image waves-effect waves-block waves-light'>" +
-                            "<img src='" + petData.petfinder.pets.pet[i].media.photos.photo[2].$t + "' style='width:200; height:200px;'>" + 
+                            "<img class='activator' src='" + petData.petfinder.pets.pet[i].media.photos.photo[2].$t + "'style='width:200px; height:200px;'>" + 
                         "</div>" + 
                         "<div class='card-content'>" + 
                             "<span class='card-title activator grey-text text-darken-4 title'>" +
-                                petData.petfinder.pets.pet[i].name.$t + "<br>" + "<h6>Click here to learn more about me!</h6>" +
+                                petData.petfinder.pets.pet[i].name.$t + "<i class='material-icons right'>info</i></span>" +
                         "</div>" +
                         "<div class='card-reveal'>" + 
                             "<span class='card-title grey-text text-darken-4 title'>" +

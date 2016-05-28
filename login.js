@@ -33,6 +33,7 @@
 			        console.log("Error logging user in:", error);
 			    }
 			  } else {
+			    window.location.href = "dogpage.html";
 			    console.log("Authenticated successfully with payload:", authData);
 			  }
 			});

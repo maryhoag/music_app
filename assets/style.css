@@ -4,12 +4,6 @@ body {
 	background-image: url(pawtx2.gif);
 }
 
-
-.title {
-	font-family: 'raconteur', cursive;
-	color: teal;
-}
-
 .banner {
 	background-color: #fefefb;
 }
@@ -26,6 +20,11 @@ h1 {
 @font-face {
 	font-family: raconteur;
 	src: url(raconteurNF.ttf);
+}
+
+.title {
+	font-family: 'raconteur', cursive;
+	color: teal;
 }
 
 footer {

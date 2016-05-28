@@ -9,6 +9,7 @@ var shelterLat;
 var shelterLong;
 var name;
 var animalClick;
+var counter = 0;
 
 $("#wiki").hide();
 
@@ -83,6 +84,7 @@ $.getJSON('http://api.petfinder.com/breed.list?format=json&key=542589b85677d309b
 
 //Firebase
 
+
     var lastSearch = [];
 
 database.limitToLast(5).on('child_added', function(dataSnap){
@@ -100,19 +102,60 @@ database.limitToLast(5).on('child_added', function(dataSnap){
     console.log(buttonBreed);
     console.log(buttonName);
     console.log(buttonZip);
-    
-   if(5 >= lastSearch.length){
-    var newButton = $("<a class='btn waves-effect waves-light'>" + searchVal.breed + "</a>");
-    $("#last5").append(newButton);
-        
-   }
+
+
+        if(5 >= lastSearch.length){
+            //counter++;
+            var newButton = $("<button class='btn waves-effect waves-light' id='last5button" + counter + "'>" + searchVal.breed + "</button>");
+            $("#last5").append(newButton);
+        }  
+
+    $("#last5button1").on("click", function(){
+        var zipText = $('#zip');
+        zipText.val(lastSearch[0].zip);
+        $("#typeTitle").html("<b>" + lastSearch[0].name + "</b>");
+        var breedText = $("#breedName");
+        breedText.val(lastSearch[0].breed);
+
+    });
+    $("#last5button2").on("click", function(){
+        var zipText = $('#zip');
+        zipText.val(lastSearch[1].zip);
+        $("#typeTitle").html("<b>" + lastSearch[1].name + "</b>");
+        var breedText = $("#breedName");
+        breedText.val(lastSearch[1].breed);
+    });
+        $("#last5button3").on("click", function(){
+        var zipText = $('#zip');
+        zipText.val(lastSearch[2].zip);
+        $("#typeTitle").html("<b>" + lastSearch[2].name + "</b>");
+        var breedText = $("#breedName");
+        breedText.val(lastSearch[2].breed);
+
+    });
+    $("#last5button4").on("click", function(){
+        var zipText = $('#zip');
+        zipText.val(lastSearch[3].zip);
+        $("#typeTitle").html("<b>" + lastSearch[3].name + "</b>");
+        var breedText = $("#breedName");
+        breedText.val(lastSearch[3].breed);
+    });
+    $("#last5button5").on("click", function(){
+        var zipText = $('#zip');
+        zipText.val(lastSearch[4].zip);
+        $("#typeTitle").html("<b>" + lastSearch[4].name + "</b>");
+        var breedText = $("#breedName");
+        breedText.val(lastSearch[4].breed);
+    });
 });
 
+//----------
 
 $("#submitName").on("click", function(){
 
     var zip = $("#zip").val().trim();
     var breedType = $("#breedName").val().trim();
+    counter++;
 
     database.push({
         name: animalClick,
@@ -120,10 +163,6 @@ $("#submitName").on("click", function(){
         breed: breedType
     })
 
-
-
-
-// --------------
 
 
 

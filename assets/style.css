@@ -82,9 +82,6 @@ footer {
 #wiki{
 	background-color: #fefefb;
 	margin-top: 25%;
-	border-style: solid;
-	border-color: black;
-	border-width: 1px;
 }
 
 #wikiresult{
@@ -96,13 +93,7 @@ footer {
 }
 
 #last5{
-	margin-left: 3%;
-	background-color: #fefefb;
-	width: 100px;
 	height: 300px;
-	border-style: solid;
-	border-color: black;
-	border-width: 1px;
 }
 
 

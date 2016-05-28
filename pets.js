@@ -8,6 +8,7 @@ var infowindow;
 var shelterLat;
 var shelterLong;
 var name;
+var animalClick;
 
 $("#wiki").hide();
 
@@ -21,10 +22,8 @@ function initMap() {
 }
 
 $(".typeDog").on("click", function(){
-var name = "dog"
-    database.push({
-        name: name
-    })
+var name = "dog";
+animalClick = 'dog';
 //$(".nameOptions").animate({left: "-=250px"});
 $("#typeTitle").html("<b>Dog</b>");
 $("#autofill").empty()
@@ -43,10 +42,8 @@ $.getJSON('http://api.petfinder.com/breed.list?format=json&key=542589b85677d309b
 })
 
 $(".typeCat").on("click", function(){
-var name = "cat"
-    database.push({
-        name: name
-    })
+var name = "cat";
+animalClick = 'cat';
 //$(".nameOptions").animate({left: "-=250px"});
 $("#typeTitle").html("<b>Cat</b>");
 $("#autofill").empty()
@@ -65,10 +62,8 @@ $.getJSON('http://api.petfinder.com/breed.list?format=json&key=542589b85677d309b
 })
 
 $(".typeBird").on("click", function(){
-var name = "bird"
-    database.push({
-        name: name
-    })
+var name = "bird";
+animalClick = 'bird';
 //$(".nameOptions").animate({left: "-=250px"});
 $("#typeTitle").html("<b>Bird</b>");
 $("#autofill").empty()
@@ -86,7 +81,32 @@ $.getJSON('http://api.petfinder.com/breed.list?format=json&key=542589b85677d309b
     });
 })
 
+//Firebase
 
+    var lastSearch = [];
+
+database.limitToLast(5).on('child_added', function(dataSnap){
+    // stores the object into a variable.
+    var searchVal = dataSnap.val();
+
+    var buttonName = searchVal.name;
+    var buttonZip = searchVal.zip;
+    var buttonBreed = searchVal.breed;
+
+    lastSearch.push(searchVal);
+
+    console.log(searchVal);
+    console.log(lastSearch);
+    console.log(buttonBreed);
+    console.log(buttonName);
+    console.log(buttonZip);
+    
+   if(5 >= lastSearch.length){
+    var newButton = $("<a class='btn waves-effect waves-light'>" + searchVal.breed + "</a>");
+    $("#last5").append(newButton);
+        
+   }
+});
 
 
 $("#submitName").on("click", function(){
@@ -95,58 +115,11 @@ $("#submitName").on("click", function(){
     var breedType = $("#breedName").val().trim();
 
     database.push({
+        name: animalClick,
         zip: zip,
-        breedType: breedType
+        breed: breedType
     })
 
-//Firebase
-
-    var recentSearch = [];
-
-database.limitToLast(1).on('child_added', function(dataSnap){
-    // stores the object into a variable.
-    var searchInfo = dataSnap.val();
-    console.log(searchInfo.name);
-    console.log(searchInfo.breedType);
-    console.log(searchInfo.zip);
-    recentSearch.push(searchInfo.name);
-    recentSearch.push(searchInfo.breedType);
-    recentSearch.push(searchInfo.zip);
-    console.log(recentSearch);
-
-    if(recentSearch.length >= 3){
-        mostRecentSearch();
-        
-    }
-});
-
-function mostRecentSearch(){
-
-    var newButton = $("<button>" + recentSearch + "</button>");
-    $("#last5").append(newButton);
-
-
-    // generates 5 buttons.
-    //var arrayIndex = 4;
-
-    //if(recentSearch.length > 5){
-    //    recentSearch.splice(0, 1);
-    //    console.log(recentSearch);
-    //}
-
-    //$('#last5').empty(); // << so it will always be 5 buttons.
-
-    //for(var i = 0; i < recentSearch.length; i++){
-
-    //    var lastButton = $('<button>');
-    //    lastButton.addClass('btn btn-default recentButton'); // class subject to change.
-    //    lastButton.attr('data-name', recentSearch[arrayIndex]);
-     //   lastButton.html(recentSearch[arrayIndex]);
-      //  $('#last5').append(lastButton);
-      //  arrayIndex--;
-
-    //}
-};
 
 
 
@@ -301,24 +274,6 @@ function mostRecentSearch(){
 });
 
 
-
-
-
-$(".last1").on("click", function(){
-
-database.on("value", function(snapshot) {
-
-        var lastZip = database.snapshot.zip;
-        var lastType = database.snapshot.breedType;
-        var lastName = database.snapshot.name;
-
-        console.log(lastZip);
-        console.log(lastType);
-        console.log(lastName);
-});
-
-
-});
 
 
 
